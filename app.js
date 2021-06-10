@@ -18,23 +18,23 @@ userNmForm.addEventListener('submit', name => {
 function showData(doc){
     let txtli = document.createElement('li');
     let p = document.createElement('p');
-    let delspan = document.createElement('span');
+    //let delspan = document.createElement('span');
     txtli.setAttribute('data-id', doc.id);
 
     p.textContent = doc.data().text;
-    delspan.textContent = 'delete';
+    //delspan.textContent = 'delete';
 
     txtli.appendChild(p);
-    txtli.appendChild(delspan);
+    //txtli.appendChild(delspan);
     txtul.appendChild(txtli);
 
     //deleting data
 
-    delspan.addEventListener('click', (e) => {
-        e.stopPropagation();
-        let del_id = e.target.parentElement.getAttribute('data-id');
-        db.collection('users').doc(del_id).delete();
-    });
+    //delspan.addEventListener('click', (e) => {
+        //e.stopPropagation();
+        //let del_id = e.target.parentElement.getAttribute('data-id');
+        //db.collection('users').doc(del_id).delete();
+   // });
 }
 
 // getting & showing data
