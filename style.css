@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+/* font-family: 'Do Hyeon', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+/* font-family: 'Ubuntu', sans-serif; */
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Do Hyeon', sans-serif;
+    color: whitesmoke;
+}
+:root{
+    --primary-color: #201355;
+    --secondery-color: #090242;
+}
+body{
+    background: var(--secondery-color);
+}
+header{
+    background-color: var(--primary-color);
+    color: whitesmoke;
+    position: sticky;
+    top: 0px;
+}
+header h3 {
+    text-align: center;
+    font-size: 30px;
+    padding: 9px;
+}
+#admin a{
+    font-family: 'Ubuntu', sans-serif !important;
+    font-size: 16px;
+    padding: 4px 7px;
+    /* border: 1px solid white; */
+    margin: 9px;
+}
+section {
+    width: 100%;
+    margin: auto;
+}
+ul#mainTxt {
+    list-style: none;
+}
+ul#mainTxt li {
+    padding: 4px 15px;
+    width: fit-content;
+    background: aquamarine;
+    margin: 8px 0;
+    border-radius: 15px;
+}
+ul#mainTxt li span{
+    color: tomato;
+    padding: 2px 4px;
+    background: #9996;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.msgarea{
+    width: 80%;
+    margin: auto;
+    height: fit-content;
+}
+ul#mainTxt li p{
+    color: var(--primary-color);
+    font-size: 15px;
+}
+#sendForm{
+    position: sticky;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    background-color: var(--primary-color);
+    padding: 5px 0px;
+}
+#msg, .msg {
+    width: 35%;
+    padding: 8px 7px;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    font-size: 16px;
+    color: var(--primary-color);
+    text-indent: 7px;
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+#submitBtn, .submitBtn {
+    color: var(--primary-color);
+    padding: 8px 23px;
+    background: #7fffd4;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    font-size: 16px;
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+.modal {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    background: black;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+.modal h3 {
+    font-size: 28px;
+    margin: 35px 25px;
+    letter-spacing: 2px;
+}
+.modalBack {
+    background: var(--secondery-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+#userNameForm {
+    margin: 40px 0px;
+}
+/* <== hovers ==> */
+input#submitBtn:hover {
+    background: #4af3bb;
+}
