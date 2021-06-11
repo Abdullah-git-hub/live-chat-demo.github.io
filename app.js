@@ -11,6 +11,8 @@ userNmForm.addEventListener('submit', name => {
     username = userNmForm.username.value;
     document.querySelector(".modal").style.display = 'none';
     document.querySelector('.modalBack').style.display = 'none';
+    document.getElementsByTagName("header")[0].style.display = 'block';
+    document.getElementsByTagName("section")[0].style.display = 'block';
 })
 
 
