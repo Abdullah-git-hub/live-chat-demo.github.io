@@ -21,6 +21,7 @@ header{
     color: whitesmoke;
     position: sticky;
     top: 0px;
+    display: none;
 }
 header h3 {
     text-align: center;
@@ -37,6 +38,7 @@ header h3 {
 section {
     width: 100%;
     margin: auto;
+    display: none;
 }
 ul#mainTxt {
     list-style: none;
