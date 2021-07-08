@@ -1,3 +1,7 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap'); */
+/* font-family: 'Do Hyeon', sans-serif; */
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap'); */
+/* font-family: 'Ubuntu', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
 /* font-family: 'Amatic SC', cursive; */
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
@@ -12,6 +16,9 @@
 :root{
     --primary-color: #201355;
     --secondery-color: #090242;
+    --third-color: #FAB04E;
+    /* --msg-color: #FAB04E; */
+    --msg-color: #7fffd4;
 }
 body{
     background: var(--secondery-color);
@@ -21,48 +28,49 @@ header{
     color: whitesmoke;
     position: sticky;
     top: 0px;
-    display: none;
+    display: none; /*change*/
 }
 header h3 {
     text-align: center;
     font-size: 30px;
     padding: 9px;
-}
-#admin a{
-    font-family: 'Ubuntu', sans-serif !important;
-    font-size: 16px;
-    padding: 4px 7px;
-    /* border: 1px solid white; */
-    margin: 9px;
+    font-family: 'Amatic SC', cursive;
 }
 section {
     width: 100%;
     margin: auto;
-    display: none;
+    display: none;  /*change*/
 }
-ul#mainTxt {
+#mainTxt {
     list-style: none;
 }
-ul#mainTxt li {
+#mainTxt li {
     padding: 4px 15px;
     width: fit-content;
-    background: aquamarine;
+    background: var(--msg-color);
     margin: 8px 0;
     border-radius: 15px;
 }
-ul#mainTxt li span{
+#mainTxt li span{
     color: tomato;
-    padding: 2px 4px;
+    padding: 0px 4px;
     background: #9996;
     border-radius: 3px;
     cursor: pointer;
+    font-size: 15px;
 }
 .msgarea{
     width: 80%;
     margin: auto;
     height: fit-content;
 }
-ul#mainTxt li p{
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#mainTxt li p{
     color: var(--primary-color);
     font-size: 15px;
 }
@@ -76,7 +84,7 @@ ul#mainTxt li p{
     padding: 5px 0px;
 }
 #msg, .msg {
-    width: 35%;
+    width: 80%;
     padding: 8px 7px;
     border: none;
     border-radius: 3px;
@@ -86,12 +94,13 @@ ul#mainTxt li p{
     text-indent: 7px;
     padding-bottom: 5px;
     transition: 0.3s;
+    margin-bottom: 10px;
 }
 
 #submitBtn, .submitBtn {
     color: var(--primary-color);
     padding: 8px 23px;
-    background: #7fffd4;
+    background: var(--msg-color);
     border: none;
     border-radius: 3px;
     cursor: pointer;
@@ -108,13 +117,13 @@ ul#mainTxt li p{
     transform: translateX(-50%);
     text-align: center;
     width: 80%;
-    max-width: 600px;
+    max-width: 500px;
 }
 
 .modal h3 {
     font-size: 28px;
     margin: 35px 25px;
-    letter-spacing: 2px;
+    /* letter-spacing: 2px; */
 }
 .modalBack {
     background: var(--secondery-color);
@@ -127,7 +136,59 @@ ul#mainTxt li p{
 #userNameForm {
     margin: 40px 0px;
 }
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.userimg {
+    width: 26px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.accname {
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+#logoutbtn {
+    color: black;
+    margin-left: 15px;
+    background: var(--msg-color);
+    border: none;
+    padding: 4px 13px;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#txtType {display: block;}
+
+#txtType input[type='text'] {
+    margin: 0;
+    width: 50%;
+}
+#accInfo {
+    background: #6969694a;
+    padding: 4px 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+#accInfo img {
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
 /* <== hovers ==> */
 input#submitBtn:hover {
-    background: #4af3bb;
+    background: var(--msg-color);
 }
