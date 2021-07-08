@@ -7,13 +7,22 @@
     <link rel="shortcut icon" href="fav.png" type="image/x-icon">
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
     <title>Live Chat Demo</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d708101dd1.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <nav>
-            <h3>Hackers Community <span id="admin"><a href="https://www.facebook.com/abdullahal.arafat.35728/" target="_blank">by - Arafat</a></span></h3>
+            <h3>Hackers Community <i class="fas fa-skull-crossbones"></i></h3>
+            <div class="menu">
+                    <div id="accInfo">
+                        <img id="userimg" src="">
+                        <span id="accname"></span>
+                    </div>
+                    <div><button id="googleLogout" style="color: black;">Log Out</button></div>
+            </div>
         </nav>
     </header>
     <section>
@@ -29,12 +38,8 @@
         </div>
     </section>
     <div class="modalBack"></div>
-    <div class="modal">
-        <h3>Please Enter Your Name To Enter Into The Chat-Room</h3>
-        <form id="userNameForm">
-            <input type="text" name="username" class="msg" placeholder="Enter Your Name Here" required autocomplete="off">
-            <input type="submit" value="Set Name" class="submitBtn">
-        </form>
+    <div class="modal login">
+        <button id="googleLogin" style="color: black;">Log In With Google</button>
     </div>
 
 
@@ -56,10 +61,16 @@
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
         const db = firebase.firestore();
-      db.settings({ timestampsInSnapshots: true});
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        // updating db settings
+        db.settings({ timestampsInSnapshots: true});
 
     </script>
+    <!-- <script src="jquery.js"></script> -->
     <script src="app.js"></script>
+    <!-- <script src="webivents.js"></script> -->
 </body>
 </html>
