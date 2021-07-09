@@ -68,6 +68,9 @@ firebase.auth().onAuthStateChanged((user) => {
         pp = user;
         console.log(pp)
         onloadUserinit(pp);
+        userName = pp.displayName;
+        userImg = pp.photoURL;
+        userId = pp.uid;
         document.querySelector(".modal").style.display = 'none';
         document.querySelector('.modalBack').style.display = 'none';
         document.getElementsByTagName("header")[0].style.display = 'block';
@@ -125,12 +128,16 @@ function showData(doc){
     let txtli = document.createElement('li');
     let p = document.createElement('p');
     // let delspan = document.createElement('span');
+    let subP = document.createElement('p');
     txtli.setAttribute('data-id', doc.id);
+    subP.classList.add("stime");
 
     p.textContent = doc.data().text;
+    subP.textContent = doc.data().stime;
     // delspan.textContent = 'delete';
 
     txtli.appendChild(p);
+    txtli.appendChild(subP);
     // txtli.appendChild(delspan);
     txtul.appendChild(txtli);
 
@@ -147,11 +154,13 @@ function showData(doc){
 form.addEventListener('submit', (data) => {
     data.preventDefault();
     let sendDate = new Date();
+    let time = inittime();
     db.collection('users').add({
         // text: form.txtmsg.value,
         // text: `${username.innerText}: ${form.txtmsg.value}`,
         text: `${userName}: ${form.txtmsg.value}`,
         creditAt: sendDate,
+        stime: time,
     })
 
     form.txtmsg.value = '';
@@ -193,6 +202,6 @@ function inittime(){
 
     year = time.getFullYear();
     
-    var sendTime = hours + ':' + mins + ' ' + ampm + ' ' + ' ' + date + ' ' + month + ' ' + year;
+    var sendTime = (hours + ':' + mins + ' ' + ampm + ' ' + ' ' + date + ' ' + month + ' ' + year);
     return sendTime;
 }
