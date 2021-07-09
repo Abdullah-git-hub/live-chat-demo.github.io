@@ -110,14 +110,16 @@ form {
     transition: 0.3s;
 }
 .modal {
+    border-radius: 3px;
     position: absolute;
     top: 30%;
     left: 50%;
-    background: black;
+    background: whitesmoke;
     transform: translateX(-50%);
     text-align: center;
-    width: 80%;
-    max-width: 500px;
+    overflow: hidden;
+    /* width: 80%; */
+    /* max-width: 500px; */
 }
 
 .modal h3 {
@@ -188,7 +190,108 @@ nav {
     border-radius: 50%;
     margin-right: 10px;
 }
+#googleLogout, #googleLogin, #sideGoogleLogout {
+    padding: 3px 6px;
+}
+button#googleLogin {
+    font-size: 30px;
+}
+button#googleLogin img {
+    width: 45px;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+.sideBar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: var(--primary-color);
+    height: 100vh;
+    transition: 0.4s;
+    transform: translateX(100%);
+}
+
+.sideContain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sideImg {
+    width: 50%;
+    overflow: hidden;
+}
+
+img#sideUserImg {
+    width: 100%;
+    border-radius: 4px;
+}
+
+h3#sideUserName {
+    margin: 10px;
+}
+
+.show,.close {
+    font-size: 25px;
+}
+.show {
+    display: none;
+    padding: 4px 14px;
+}
+.close {
+    margin: 1px 8px;
+}
+.notic h3 {
+    font-size: 16px;
+    margin: 2px;
+    color: black;
+}
 /* <== hovers ==> */
 input#submitBtn:hover {
     background: var(--msg-color);
+}
+
+/* media queries */
+
+@media(max-width: 600px){
+    .menu {
+        display: none;
+    }
+    
+    .show {
+        display: block;
+    }
+    button#googleLogin {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 18px;
+        width: 100%;
+    }
+    
+    button#googleLogin img {
+        margin: 0;
+    }
+}
+
+@media(max-width: 401px){
+    header h3 {
+        font-size: 24px;
+    }
+    #mainTxt li p {
+        font-size: 13px;
+    }
+    
+    #mainTxt li {
+        padding: 4px 12px;
+        margin: 5px 0px;
+    }
+    #submitBtn, .submitBtn {
+        padding: 2px 20px;
+    }
+    
+    #msg, .msg {
+        padding: 2px 5px;
+    }
 }
