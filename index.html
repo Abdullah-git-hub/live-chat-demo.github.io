@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,17 +13,19 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/d708101dd1.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <header>
         <nav>
             <h3>Hackers Community <i class="fas fa-skull-crossbones"></i></h3>
             <div class="menu">
-                    <div id="accInfo">
-                        <img id="userimg" src="">
-                        <span id="accname"></span>
-                    </div>
-                    <div><button id="googleLogout" style="color: black;">Log Out</button></div>
+                <div id="accInfo">
+                    <img id="userimg" src="">
+                    <span id="accname"></span>
+                </div>
+                <div><button id="googleLogout" style="color: black;">Log Out</button></div>
             </div>
+            <div class="show">&#9776</div>
         </nav>
     </header>
     <section>
@@ -37,13 +40,28 @@
             </form>
         </div>
     </section>
-    <div class="modalBack"></div>
-    <div class="modal login">
-        <button id="googleLogin" style="color: black;">Log In With Google</button>
+    
+    <div class="loginBox modalBack"></div>
+    <div class="loginBox modal login">
+        <div class="notic"><h3>Please wait if you logged in before <br>or...</h3></div>
+        <button id="googleLogin" style="color: black;"><img src="google.png">Log In With Google</button>
+    </div>
+
+    <div class="sideBar">
+        <div class="sideIcons">
+            <div class="close">&#10006</div>
+        </div>
+        <div class="sideContain">
+            <div class="sideImg"><img src="" id="sideUserImg"></div>
+            <div class="sideUserName">
+                <h3 id="sideUserName"></h3>
+            </div>
+            <div><button id="sideGoogleLogout" style="color: black;">Log Out</button></div>
+        </div>
     </div>
 
 
-    
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -51,13 +69,13 @@
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
-          apiKey: "AIzaSyAozPtO6A63UNoSwKqhyB3QWLTyvIcIzNs",
-          authDomain: "live-chat-e64e3.firebaseapp.com",
-          databaseURL: "https://live-chat-e64e3-default-rtdb.firebaseio.com",
-          projectId: "live-chat-e64e3",
-          storageBucket: "live-chat-e64e3.appspot.com",
-          messagingSenderId: "93603902703",
-          appId: "1:93603902703:web:ba97247f8e6ef15b32d71a"
+            apiKey: "AIzaSyAozPtO6A63UNoSwKqhyB3QWLTyvIcIzNs",
+            authDomain: "live-chat-e64e3.firebaseapp.com",
+            databaseURL: "https://live-chat-e64e3-default-rtdb.firebaseio.com",
+            projectId: "live-chat-e64e3",
+            storageBucket: "live-chat-e64e3.appspot.com",
+            messagingSenderId: "93603902703",
+            appId: "1:93603902703:web:ba97247f8e6ef15b32d71a"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
@@ -66,11 +84,12 @@
         const provider = new firebase.auth.GoogleAuthProvider();
 
         // updating db settings
-        db.settings({ timestampsInSnapshots: true});
+        db.settings({ timestampsInSnapshots: true });
 
     </script>
     <!-- <script src="jquery.js"></script> -->
     <script src="app.js"></script>
     <!-- <script src="webivents.js"></script> -->
 </body>
+
 </html>
