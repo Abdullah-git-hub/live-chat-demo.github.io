@@ -2,9 +2,24 @@ const form = document.getElementById("txtType");
 const txtul = document.getElementById("mainTxt");
 const msgInBtn = document.getElementById("msg");
 const sendBtn = document.getElementById("submitBtn");
-const googleLoginBtn = document.getElementById("googleLogin")
-const googleLogoutBtn = document.getElementById("googleLogout")
-let userName, userImg, userId;
+const googleLoginBtn = document.getElementById("googleLogin");
+const googleLogoutBtn = document.getElementById("googleLogout");
+const sideGoogleLogout = document.getElementById("sideGoogleLogout");
+const closeBtn = document.querySelector(".close");
+const showBtn = document.querySelector(".show");
+const sideBar = document.querySelector(".sideBar");
+const loginBox1 = document.getElementsByClassName("loginBox")[0];
+const loginBox2 = document.getElementsByClassName("loginBox")[1];
+
+// web events
+showBtn.addEventListener('click', function(){
+    sideBar.style.transform = "translateX(0%)";
+})
+closeBtn.addEventListener('click', function(){
+    sideBar.style.transform = "translateX(100%)";
+})
+
+let userName, userImg, userId, pp;
 
 // Google Login
 googleLoginBtn.addEventListener('click', function(){
@@ -29,29 +44,80 @@ googleLogoutBtn.addEventListener('click', function(){
         document.querySelector('.modalBack').style.display = 'block';
         document.getElementsByTagName("header")[0].style.display = 'none';
         document.getElementsByTagName("section")[0].style.display = 'none';
+        sideBar.style.transform = "translateX(100%)";
+      }).catch((error) => {
+        console.log(error)
+      });
+})
+
+sideGoogleLogout.addEventListener('click', function(){
+    auth.signOut().then(() => {
+        document.querySelector(".modal").style.display = 'block';
+        document.querySelector('.modalBack').style.display = 'block';
+        document.getElementsByTagName("header")[0].style.display = 'none';
+        document.getElementsByTagName("section")[0].style.display = 'none';
+        sideBar.style.transform = "translateX(100%)";
       }).catch((error) => {
         console.log(error)
       });
 })
 
 // cheaking auth state
-function checkAuthState(){
-    auth.onAuthStateChanged(user=>{
-        if(user){
-            userinit(userName, userImg, userId);
-            document.querySelector(".modal").style.display = 'none';
-            document.querySelector('.modalBack').style.display = 'none';
-            document.getElementsByTagName("header")[0].style.display = 'block';
-            document.getElementsByTagName("section")[0].style.display = 'block';
-        }
-    })
-}
+firebase.auth().onAuthStateChanged((user) => {
+    if (user != null) {
+        pp = user;
+        console.log(pp)
+        onloadUserinit(pp);
+        document.querySelector(".modal").style.display = 'none';
+        document.querySelector('.modalBack').style.display = 'none';
+        document.getElementsByTagName("header")[0].style.display = 'block';
+        document.getElementsByTagName("section")[0].style.display = 'block';
+    } else {
+        console.log(user)
+        document.querySelector(".modal").style.display = 'block';
+        document.querySelector('.modalBack').style.display = 'block';
+        document.getElementsByTagName("header")[0].style.display = 'none';
+        document.getElementsByTagName("section")[0].style.display = 'none';
+    }
+  });
 
 // rendering user details
 function userinit(name, img, id){
     document.getElementById("accname").innerHTML = name;
     document.getElementById("userimg").setAttribute("src", img);
+    document.getElementById("sideUserName").innerHTML = name;
+    document.getElementById("sideUserImg").setAttribute("src", img);
     console.log("User Id Is: " + id);
+    db.collection('users').orderBy('creditAt').onSnapshot(snapshot =>{
+        let changes = snapshot.docChanges();
+        changes.forEach(change => {
+            if(change.type === 'added'){
+                showData(change.doc);
+            } else if(change.type === 'removed'){
+                let li = txtul.querySelector(`[data-id=${change.doc.id}]`);
+                txtul.removeChild(li);
+            }
+        })
+    });
+}
+
+function onloadUserinit(a){
+    document.getElementById("accname").innerHTML = a.displayName;;
+    document.getElementById("userimg").setAttribute("src", a.photoURL);
+    document.getElementById("sideUserName").innerHTML = a.displayName;;
+    document.getElementById("sideUserImg").setAttribute("src", a.photoURL);
+    console.log("User Id Is: " + a.uid);
+    db.collection('users').orderBy('creditAt').onSnapshot(snapshot =>{
+        let changes = snapshot.docChanges();
+        changes.forEach(change => {
+            if(change.type === 'added'){
+                showData(change.doc);
+            } else if(change.type === 'removed'){
+                let li = txtul.querySelector(`[data-id=${change.doc.id}]`);
+                txtul.removeChild(li);
+            }
+        })
+    });
 }
 
 // renderong function
@@ -77,15 +143,6 @@ function showData(doc){
     // });
 }
 
-// getting & showing data
-// db.collection('users').get().then(snapst => {
-//     snapst.docs.forEach(doc => {
-//         showData(doc);
-//     });
-// }).catch(err => {
-//     `Failled to load. Error: ${err}`;
-// });
-
 // sending data
 form.addEventListener('submit', (data) => {
     data.preventDefault();
@@ -105,17 +162,17 @@ form.addEventListener('submit', (data) => {
 
 // real time data-base setup
 
-db.collection('users').orderBy('creditAt').onSnapshot(snapshot =>{
-    let changes = snapshot.docChanges();
-    changes.forEach(change => {
-        if(change.type === 'added'){
-            showData(change.doc);
-        } else if(change.type === 'removed'){
-            let li = txtul.querySelector(`[data-id=${change.doc.id}]`);
-            txtul.removeChild(li);
-        }
-    })
-});
+// db.collection('users').orderBy('creditAt').onSnapshot(snapshot =>{
+//     let changes = snapshot.docChanges();
+//     changes.forEach(change => {
+//         if(change.type === 'added'){
+//             showData(change.doc);
+//         } else if(change.type === 'removed'){
+//             let li = txtul.querySelector(`[data-id=${change.doc.id}]`);
+//             txtul.removeChild(li);
+//         }
+//     })
+// });
 
 function inittime(){
     var time = new Date();
@@ -139,6 +196,3 @@ function inittime(){
     var sendTime = hours + ':' + mins + ' ' + ampm + ' ' + ' ' + date + ' ' + month + ' ' + year;
     return sendTime;
 }
-
-// 50aD6Sgyrza7uJpm2800fW3aOTC3
-// 50aD6Sgyrza7uJpm2800fW3aOTC3
