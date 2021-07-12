@@ -1,6 +1,6 @@
 function checkTxt(txt){
     var slangs = [
-        "magix","bainsod", "bainchod", "behenchod", "magi", "madarsod", "madarchod", "madarcap", "motherchod", "kuttar", "kutta", "kutta", "halar", "hala", "hla", "hlaa", "khakir", "khankir"
+        "magix","bainsod", "bainchod", "behenchod", "magi", "madarsod", "madarchod", "madarcap", "motherchod", "kuttar", "kutta", "kutta", "halar", "hala", "hla", "hlaa", "khakir", "fuck", "sex", "khankir"
     ];
     var txtArr = txt.split(" ");
     var slangLen = slangs.length;
