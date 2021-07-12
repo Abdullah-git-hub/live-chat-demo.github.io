@@ -1,5 +1,5 @@
 function checkTxt(txt){
-    var slangs = ["aa", "bb", "cc", "dd", "magix"];
+    var slangs = ["aa", "bb", "cc", "dd", "magix", "magi"];
     var txtArr = txt.split(" ");
     var slangLen = slangs.length;
     var txtLen = txtArr.length;
