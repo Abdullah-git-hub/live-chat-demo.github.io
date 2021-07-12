@@ -49,6 +49,8 @@ section {
     background: var(--msg-color);
     margin: 8px 0;
     border-radius: 15px;
+    max-width: 95%;
+    word-break: break-all;
 }
 #mainTxt li span{
     color: tomato;
