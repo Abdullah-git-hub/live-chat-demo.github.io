@@ -15,9 +15,10 @@ function checkTxt(txt){
         var isIncluded = slangs.includes(lowCase);
         if(isIncluded){
             finTxtSlice = "****";
-        }else{
-            finTxtSlice = checkEmoji(finTxtSlice);
         }
+//         else{
+//             finTxtSlice = checkEmoji(finTxtSlice);
+//         }
         
         finTxtArr.push(finTxtSlice);
     }
