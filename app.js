@@ -141,6 +141,9 @@ function showData(doc){
     // txtli.appendChild(delspan);
     txtul.appendChild(txtli);
 
+    // auto scrolling
+    window.scrollTo(0, 9999);
+    
     //deleting data
 
     // delspan.addEventListener('click', (e) => {
