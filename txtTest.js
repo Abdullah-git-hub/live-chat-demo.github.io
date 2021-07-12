@@ -13,7 +13,7 @@ function checkTxt(txt){
         console.log(lowCase);
 
         var isIncluded = slangs.includes(lowCase);
-        if(isIncluded){
+        if(isIncluded == true){
             finTxtSlice = "****";
         }
 //         else{
