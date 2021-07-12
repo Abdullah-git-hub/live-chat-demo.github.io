@@ -142,8 +142,8 @@ function showData(doc){
     txtul.appendChild(txtli);
 
     // auto scrolling
+
     window.scrollTo(0, 9999);
-    
     //deleting data
 
     // delspan.addEventListener('click', (e) => {
@@ -158,10 +158,12 @@ form.addEventListener('submit', (data) => {
     data.preventDefault();
     let sendDate = new Date();
     let time = inittime();
+    samTxt = form.txtmsg.value;
+    finTxt = checkTxt(samTxt);
     db.collection('users').add({
         // text: form.txtmsg.value,
         // text: `${username.innerText}: ${form.txtmsg.value}`,
-        text: `${userName}: ${form.txtmsg.value}`,
+        text: `${userName}: ${finTxt}`,
         creditAt: sendDate,
         stime: time,
     })
@@ -169,7 +171,8 @@ form.addEventListener('submit', (data) => {
     form.txtmsg.value = '';
 
     console.clear();
-    console.log("Messege added successfully !!!")
+    console.log("Messege added successfully !!!");
+    // console.log(finTxt);
 });
 
 // real time data-base setup
