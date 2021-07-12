@@ -1,5 +1,7 @@
 function checkTxt(txt){
-    var slangs = ["magix","bainsod", "bainchod", "behenchod", "magi", "madarsod", "madarchod", "madarcap", "motherchod", "kuttar", "kutta", "kutta", "halar", "hala", "hla", "hlaa", "khakir", "khankir"];
+    var slangs = [
+        "magix","bainsod", "bainchod", "behenchod", "magi", "madarsod", "madarchod", "madarcap", "motherchod", "kuttar", "kutta", "kutta", "halar", "hala", "hla", "hlaa", "khakir", "khankir"
+    ];
     var txtArr = txt.split(" ");
     var slangLen = slangs.length;
     var txtLen = txtArr.length;
@@ -13,9 +15,32 @@ function checkTxt(txt){
         var isIncluded = slangs.includes(lowCase);
         if(isIncluded){
             finTxtSlice = "****";
+        }else{
+            finTxtSlice = checkEmoji(finTxtSlice);
         }
+        
         finTxtArr.push(finTxtSlice);
     }
 
     return finTxtArr.join(" ");
+}
+
+function checkEmoji(p){
+    if(p === ":-)" || p === ":)"){
+        return "🙂";
+    }else if(p === ";-)" || p === ";)"){
+        return "😉";
+    }else if(p === ":-(" || p === ":("){
+        return "🙁";
+    }else if(p === ":-|" || p === ":|"){
+        return "😐";
+    }else if(p === "^_^"){
+        return "😊";
+    }else if(p === ':")'){
+        return "🤧"
+    }else if(p === "$/"){
+        return "🥴";
+    }else if(p === ":-/" || p === ":/"){
+        return "😕";
+    }
 }
