@@ -446,7 +446,7 @@ input#submitBtn:hover {
     }
 }
 
-@media(max-width: 426px){
+@media(max-width: 770px){
     header h3 {
         font-size: 24px;
     }
