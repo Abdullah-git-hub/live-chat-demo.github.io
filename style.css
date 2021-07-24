@@ -337,9 +337,12 @@ button#cancleImg {
     border-radius: 4px;
     cursor: pointer;
 }
-
+li.myMsg p {
+    color: white !important;
+}
 .myMsg{
     margin-left: auto !important;
+    background: rgb(0, 132, 255) !important;
 }
 img#showImg {
     max-width: 100%;
