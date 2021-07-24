@@ -9,6 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
     <title>Live Chat Demo</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/d708101dd1.js" crossorigin="anonymous"></script>
@@ -34,8 +35,10 @@
             </ul>
         </div>
         <div id="sendForm">
-            <form id="txtType">
-                <input type="text" placeholder="Type here" name="txtmsg" id="msg" required autofocus autocomplete="off">
+            <form id="txtType" autocomplete="off">
+                <input type="file" name="photo" id="photo" accept="image/*" hidden>
+                <label for="photo"><i class="far fa-image"></i></label>
+                <input type="text" placeholder="Type here" name="txtmsg" id="msg" required autofocus>
                 <input type="submit" value="Send" id="submitBtn">
             </form>
         </div>
@@ -47,6 +50,32 @@
         <button id="googleLogin" style="color: black;"><img src="google.png">Log In With Google</button>
     </div>
 
+
+    <div id="previewBack"></div>
+    <div class="imagePreview">
+        <div class="imgCon">
+            <img id="previewImg" src="">
+        </div>
+        <div class="previewTxt">
+            <form id="previewTxtForm" autocomplete="off">
+                <button id="cancleImg">Cancel</button>
+                <input type="text" class="msg" id="previewTxt" name="prerviewTxt" placeholder="Type here">
+                <input type="submit" class="submitBtn" value="Send" id="previewSubmit">
+            </form>
+        </div>
+    </div>
+
+    <div id="imgShowBack"></div>
+    <div class="imgShow">
+        <div class="cross">
+            <i class="far fa-times-circle corss_i"></i>
+        </div>
+        <img id="showImg" src="" alt="">
+        <a href="" id="imgDownload" download="#">
+            <button id="imgDownloadBtn"><i class="fa fa-download" aria-hidden="true"></i>Download</button>
+        </a>
+    </div>
+
     <div class="sideBar">
         <div class="sideIcons">
             <div class="close">&#10006</div>
@@ -56,16 +85,19 @@
             <div class="sideUserName">
                 <h3 id="sideUserName"></h3>
             </div>
-            <div><button id="sideGoogleLogout" style="color: black;">Log Out</button></div>
+            <div><button id="sideGoogleLogout">Log Out</button></div>
         </div>
     </div>
-
 
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
+
+     <!-- <div id="cursor">
+         <img id="cursorImg" src="https://www.freeiconspng.com/uploads/welcome-guest-log-in--register--29.png">
+     </div> -->
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
@@ -82,10 +114,11 @@
         const auth = firebase.auth();
         const db = firebase.firestore();
         const provider = new firebase.auth.GoogleAuthProvider();
-
+        const storage = firebase.storage().ref();
         // updating db settings
         db.settings({ timestampsInSnapshots: true });
 
+        console.log(firebase)
     </script>
     <!-- <script src="jquery.js"></script> -->
     <script src="app.js"></script>
