@@ -10,7 +10,11 @@
     margin: 0;
     padding: 0;
     font-family: 'Hind Siliguri', sans-serif;
+    letter-spacing: 0.3px;
     color: whitesmoke;
+    /* cursor: none; */
+    /* cursor: url("https://www.freeiconspng.com/uploads/welcome-guest-log-in--register--29.png"); */
+    /* cursor: var(--msg-color); */
 }
 :root{
     --primary-color: #201355;
@@ -20,10 +24,12 @@
     --msg-color: #7fffd4;
 }
 body{
-    background: var(--secondery-color);
+    background: #18191a;
 }
 header{
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
+    background: #242526;
+    border-bottom: 0.2px solid #646464;
     color: whitesmoke;
     position: sticky;
     top: 0px;
@@ -44,12 +50,12 @@ section {
     list-style: none;
 }
 #mainTxt li {
-    padding: 4px 15px;
+    padding: 4px 0px;
     width: fit-content;
-    background: var(--msg-color);
+    background: #3e4042;
     margin: 8px 0;
     border-radius: 15px;
-    max-width: 95%;
+    max-width: 40%;
     word-break: break-all;
 }
 #mainTxt li span{
@@ -72,8 +78,9 @@ form {
     flex-direction: column;
 }
 #mainTxt li p{
-    color: var(--primary-color);
+    color: #e4e6eb;
     font-size: 15px;
+    padding: 2px 13px;
 }
 #sendForm{
     position: sticky;
@@ -81,8 +88,9 @@ form {
     left: 0px;
     width: 100%;
     text-align: center;
-    background-color: var(--primary-color);
+    background-color: #242526;
     padding: 5px 0px;
+    border-top: 0.2px solid #646464;
 }
 #msg, .msg {
     width: 80%;
@@ -115,7 +123,8 @@ form {
     position: absolute;
     top: 30%;
     left: 50%;
-    background: whitesmoke;
+    /* background: whitesmoke; */
+    background: #3e4042;
     transform: translateX(-50%);
     text-align: center;
     overflow: hidden;
@@ -129,7 +138,8 @@ form {
     /* letter-spacing: 2px; */
 }
 .modalBack {
-    background: var(--secondery-color);
+    /* background: var(--secondery-color); */
+    background: #18191a;
     position: absolute;
     top: 0;
     left: 0;
@@ -173,7 +183,7 @@ nav {
 }
 #txtType {display: block;}
 
-#txtType input[type='text'] {
+#txtType input[type='text'], #previewTxt {
     margin: 0;
     width: 50%;
 }
@@ -196,18 +206,31 @@ nav {
 }
 button#googleLogin {
     font-size: 30px;
+    background: #3e4042;
+    border: 0;
+    color: #e4e6eb !important;
+    border-top: 0.2px solid #646464;
+    cursor: pointer;
 }
 button#googleLogin img {
     width: 45px;
     margin-right: 20px;
     vertical-align: middle;
 }
+img.sendedImg {
+    width: 100%;
+    cursor: pointer;
+    border-top: 0.2px solid #646464;
+    border-bottom: 0.2px solid #646464;
+}
 .sideBar {
     position: fixed;
     width: 65%;
     top: 0;
     right: 0;
-    background: var(--primary-color);
+    /* background: var(--primary-color); */
+    background: #242526;
+    border-left: 0.2px solid #646464;
     height: 100vh;
     transition: 0.4s;
     transform: translateX(100%);
@@ -247,15 +270,154 @@ h3#sideUserName {
 .notic h3 {
     font-size: 16px;
     margin: 2px;
-    color: black;
+    color: #e4e6eb;
 }
 p.stime {
-    font-size: 14px !important;
+    /* font-size: 14px !important; */
     font-weight: 700;
+}
+label i {
+    cursor: pointer;
+    background: #646464;
+    padding: 4px 8px;
+    font-size: 30px;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+input {
+    vertical-align: middle;
+}
+form#previewTxtForm {
+    flex-direction: row;
+}
+
+form#previewTxtForm input {
+    margin: 7px 2px;
+}
+.imagePreview {
+    /* width: 100vw; */
+    height: 75vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background: #242526;
+    padding: 15px;
+    border: 0.2px solid #646464;
+    border-radius: 4px;
+    /* box-shadow: 0px 0px 6px 2px #646464; */
+    display: none;
+}
+div#previewBack, #imgShowBack {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #8080805e;
+    backdrop-filter: blur(1px);
+    display: none;
+}
+.imgCon {
+    text-align: center;
+    width: 100%;
+    height: 85%;
+}
+
+img#previewImg {
+    max-width: 100%;
+    max-height: 100%;
+}
+button#cancleImg {
+    background: red;
+    border: none;
+    padding: 8px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.myMsg{
+    margin-left: auto !important;
+}
+img#showImg {
+    max-width: 100%;
+    margin: 15px auto;
+    max-height: 80%;
+    vertical-align: middle !important;
+    border-top: 0.2px solid #646464;
+    border-bottom: 0.2px solid #646464;
+}
+
+.imgShow {
+    display: flex;
+    border-radius: 7px;
+    width: 76%;
+    height: 90vh;
+    text-align: center;
+    background: #242526;
+    margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border: 0.2px solid #646464;
+    /* box-shadow: 0px 0px 6px 2px #646464; */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+a#imgDownload {
+    width: max-content;
+    margin: 8px auto;
+    text-decoration: none;
+}
+
+button#imgDownloadBtn {
+    color: black;
+    font-size: 16px;
+    padding: 2px 8px;
+    cursor: pointer;
+}
+
+button#imgDownloadBtn i {
+    color: black;
+    margin-right: 4px;
+}
+.cross {
+    position: absolute;
+    top: -5px;
+    right: 3px;
+    height: max-content;
+    font-size: 37px;
+    /* padding: 0px 5px; */
+    /* background: gray; */
+}
+button#sideGoogleLogout {
+    color: black;
+}
+.cross i {
+    background: #808080a3;
+    /* padding: 2px; */
+    border-radius: 50%;
+    cursor: pointer;
 }
 /* <== hovers ==> */
 input#submitBtn:hover {
     background: var(--msg-color);
+}
+
+
+/* Cursor */
+#cursor{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+}
+#cursorImg{
+    max-width: 100%;
 }
 
 /* media queries */
@@ -281,7 +443,7 @@ input#submitBtn:hover {
     }
 }
 
-@media(max-width: 401px){
+@media(max-width: 426px){
     header h3 {
         font-size: 24px;
     }
@@ -290,7 +452,7 @@ input#submitBtn:hover {
     }
     
     #mainTxt li {
-        padding: 4px 12px;
+        /* padding: 4px 12px; */
         margin: 5px 0px;
     }
     #submitBtn, .submitBtn {
@@ -299,5 +461,29 @@ input#submitBtn:hover {
     
     #msg, .msg {
         padding: 2px 5px;
+    }
+
+    label i {
+        font-size: 22px;
+    }
+    .msgarea {
+        width: 90%;
+    }
+    .imagePreview {
+        width: 100vw;
+    }
+
+    button#cancleImg {
+        padding: 2px 14px;
+    }
+    #mainTxt li p {
+        padding: 2px 10px;
+    }
+
+    #mainTxt li {
+        border-radius: 10px;
+    }
+    #mainTxt li {
+    max-width: 65%;
     }
 }
