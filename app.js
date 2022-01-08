@@ -70,6 +70,7 @@ googleLoginBtn.addEventListener('click', function () {
         document.querySelector('.modalBack').style.display = 'none';
         document.getElementsByTagName("header")[0].style.display = 'block';
         document.getElementsByTagName("section")[0].style.display = 'block';
+        window.reload()
     }).catch(err => {
         console.log(err)
     })
