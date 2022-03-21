@@ -98,7 +98,6 @@ function initImg(){
             // showingImg.setAttribute("src", link);
             // var downloadLink = getDownloadLink(link)
             imgDownloadLink.setAttribute("href", link);
-            console.log(downloadLink);
             imgShowCon.style.display = "flex";
             imgShowBack.style.display = "block";
         });
