@@ -95,9 +95,10 @@ function initImg(){
     for(i = 0; i < trgtImg.length; i++){
         trgtImg[i].addEventListener("click", function(e){
             let link = e.target.getAttribute("src");
-            // showingImg.setAttribute("src", link);
+            showingImg.setAttribute("src", link);
             // var downloadLink = getDownloadLink(link)
             imgDownloadLink.setAttribute("href", link);
+            // console.log(downloadLink);
             imgShowCon.style.display = "flex";
             imgShowBack.style.display = "block";
         });
