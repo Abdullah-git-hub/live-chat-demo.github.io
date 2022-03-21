@@ -70,6 +70,8 @@ const showingImg = document.getElementById("showImg");
 const trgtImg = document.getElementsByClassName("sendedImg");
 const imgDownloadLink = document.getElementById("imgDownload");
 
+/* 
+//main function
 function initImg(){
     for(i = 0; i < trgtImg.length; i++){
         trgtImg[i].addEventListener("click", function(e){
@@ -77,6 +79,25 @@ function initImg(){
             showingImg.setAttribute("src", link);
             var downloadLink = getDownloadLink(link)
             imgDownloadLink.setAttribute("download", downloadLink);
+            console.log(downloadLink);
+            imgShowCon.style.display = "flex";
+            imgShowBack.style.display = "block";
+        });
+    }
+};
+
+*/
+
+
+// for testng
+
+function initImg(){
+    for(i = 0; i < trgtImg.length; i++){
+        trgtImg[i].addEventListener("click", function(e){
+            let link = e.target.getAttribute("src");
+            // showingImg.setAttribute("src", link);
+            // var downloadLink = getDownloadLink(link)
+            imgDownloadLink.setAttribute("href", link);
             console.log(downloadLink);
             imgShowCon.style.display = "flex";
             imgShowBack.style.display = "block";
